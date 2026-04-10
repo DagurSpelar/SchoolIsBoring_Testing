@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SchoolIsBoring — Play Free Browser Games</title>
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/kVLSbyqc/Cartoon-mascot-style-favicon-icons2-removebg-preview-2.png">
+<meta name="description" content="Play 100+ free browser games instantly. No downloads, no accounts, no ads.">
+<meta name="theme-color" content="#080810">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SchoolIsBoring">
+<link rel="apple-touch-icon" href="https://i.ibb.co/kVLSbyqc/Cartoon-mascot-style-favicon-icons2-removebg-preview-2.png">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080810;--sf:#0f0f1a;--sf2:#181825;--sf3:#22223a;--br:rgba(255,255,255,.06);--br2:rgba(255,255,255,.11);--ac:#7c6aff;--acg:rgba(124,106,255,.28);--ac2:#ff4fa3;--ac3:#00e5a0;--ac4:#ffb347;--tx:#f2f2ff;--mu:#6b6b8a;--mu2:#9595b5;--r:16px;--nh:62px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+::selection{background:rgba(124,106,255,.3);color:var(--tx);}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:'Bricolage Grotesque',sans-serif;font-size:15px;line-height:1.6;min-height:100vh;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}img{display:block;}button{font-family:inherit;cursor:pointer;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--sf3);border-radius:10px;}::-webkit-scrollbar-thumb:hover{background:var(--ac);}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5;}
+.blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:.1;}
+.b1{width:600px;height:600px;background:var(--ac);top:-200px;left:-100px;animation:bf 22s ease-in-out infinite;}
+.b2{width:500px;height:500px;background:var(--ac2);bottom:-100px;right:-100px;animation:bf 18s ease-in-out infinite -8s;}
+.b3{width:400px;height:400px;background:var(--ac3);top:50%;left:50%;animation:bf 26s ease-in-out infinite -14s;}
+@keyframes bf{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(40px,-40px) scale(1.06);}66%{transform:translate(-25px,25px) scale(.95);}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nh);background:rgba(8,8,16,.78);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--br);display:flex;align-items:center;padding:0 1.75rem;gap:1.25rem;}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;cursor:pointer;}
+.logo-icon{width:34px;height:34px;border-radius:9px;overflow:hidden;flex-shrink:0;}.logo-icon img{width:100%;height:100%;object-fit:contain;}
+.logo-txt{font-size:18px;font-weight:800;letter-spacing:-.5px;}.logo-txt span{color:var(--ac);}
+.nsearch{flex:1;max-width:400px;position:relative;}
+.nsearch svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--mu);pointer-events:none;}
+.nsearch input{width:100%;background:var(--sf2);border:1px solid var(--br2);border-radius:11px;padding:0 16px 0 38px;height:38px;color:var(--tx);font-family:inherit;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s;}
+.nsearch input::placeholder{color:var(--mu);}
+.nsearch input:focus{border-color:var(--ac);box-shadow:0 0 0 3px var(--acg);}
+.kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-family:'Space Mono',monospace;font-size:10px;color:var(--mu);background:var(--sf3);border:1px solid var(--br2);border-radius:5px;padding:2px 6px;pointer-events:none;transition:opacity .2s;}
+.nsearch input:focus~.kbd{opacity:0;}
+.nright{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.nbtn{display:inline-flex;align-items:center;gap:6px;padding:0 15px;height:36px;border-radius:9px;font-size:13px;font-weight:600;transition:all .2s;border:none;}
+.nbtn-g{background:var(--sf2);color:var(--mu2);border:1px solid var(--br2);}.nbtn-g:hover{background:var(--sf3);color:var(--tx);}
+.nbtn-a{background:linear-gradient(135deg,var(--ac),#9b8eff);color:#fff;box-shadow:0 4px 18px var(--acg);}.nbtn-a:hover{transform:translateY(-1px);box-shadow:0 6px 26px var(--acg);}
+
+/* VIEWS */
+.view{display:none;position:relative;z-index:1;}.view.active{display:block;}
+
+/* HERO */
+.hero{padding:calc(var(--nh) + 1.75rem) 2rem 1.5rem;max-width:1300px;margin:0 auto;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-bottom:2.5rem;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,106,255,.12);border:1px solid rgba(124,106,255,.25);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:#a99fff;letter-spacing:.8px;text-transform:uppercase;margin-bottom:1.2rem;}
+.edot{width:6px;height:6px;border-radius:50%;background:var(--ac3);animation:pd 2s ease-in-out infinite;}
+@keyframes pd{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.6);}}
+.hero h1{font-size:clamp(1.9rem,3.5vw,3.2rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1.1rem;}
+.grad{background:linear-gradient(90deg,var(--ac),var(--ac2) 55%,var(--ac4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.dim{color:var(--mu2);}.grad2{color:#ffffff;font-style:normal;}
+.hero-sub{color:var(--mu2);font-size:15px;line-height:1.7;max-width:400px;margin-bottom:1.8rem;}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.btn-play{display:inline-flex;align-items:center;gap:8px;padding:0 26px;height:50px;background:linear-gradient(135deg,var(--ac),#9b8eff);color:#fff;border:none;border-radius:13px;font-size:15px;font-weight:700;box-shadow:0 6px 28px var(--acg);transition:all .25s;cursor:pointer;}
+.btn-play:hover{transform:translateY(-2px);box-shadow:0 10px 38px var(--acg);}
+.btn-r{display:inline-flex;align-items:center;gap:8px;padding:0 22px;height:50px;background:var(--sf2);border:1px solid var(--br2);border-radius:13px;font-size:14px;font-weight:600;transition:all .2s;cursor:pointer;color:#fff;}
+.btn-r:hover{background:var(--sf3);}
+.sbar{display:flex;background:var(--sf);border:1px solid var(--br2);border-radius:16px;overflow:hidden;margin-top:2rem;}
+.sitem{flex:1;padding:1.1rem 1.4rem;border-right:1px solid var(--br);text-align:center;}
+.sitem:last-child{border-right:none;}
+.sn{font-size:1.9rem;font-weight:800;letter-spacing:-1px;display:block;background:linear-gradient(135deg,var(--tx),var(--mu2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sl{font-size:11px;color:var(--mu);font-weight:500;}
+
+/* Hero featured */
+.hfeat{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:330px;}
+.fc{border-radius:var(--r);border:1px solid var(--br2);overflow:hidden;position:relative;cursor:pointer;display:block;transition:transform .25s,border-color .25s,box-shadow .25s;}
+.fc:hover{transform:scale(1.025);border-color:rgba(124,106,255,.5);box-shadow:0 14px 44px rgba(0,0,0,.5);z-index:2;}
+.fc.big{grid-row:span 2;}
+.fc-fb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.fc-fb img{max-width:55%;max-height:55%;object-fit:contain;filter:drop-shadow(0 4px 20px rgba(0,0,0,.5));}
+.fc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.08) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:.9rem;}
+.fc-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(124,106,255,.9);color:#fff;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:3px 9px;border-radius:100px;width:fit-content;margin-bottom:5px;}
+.fc-title{font-size:14px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fc-genre{font-size:11px;color:rgba(255,255,255,.5);}
+.fc-pb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);width:50px;height:50px;border-radius:50%;background:rgba(124,106,255,.95);border:none;display:flex;align-items:center;justify-content:center;transition:transform .25s cubic-bezier(.34,1.56,.64,1);}
+.fc:hover .fc-pb{transform:translate(-50%,-50%) scale(1);}
+
+/* TICKER */
+.ticker-wrap{border-top:1px solid var(--br);border-bottom:1px solid var(--br);overflow:hidden;background:var(--sf);position:relative;z-index:1;}
+.ticker-track{display:flex;animation:tick 35s linear infinite;white-space:nowrap;}
+.ticker-track:hover{animation-play-state:paused;}
+.ti{display:inline-flex;align-items:center;gap:8px;padding:10px 28px;font-size:13px;color:var(--mu2);border-right:1px solid var(--br);flex-shrink:0;cursor:pointer;transition:color .2s;}
+.ti:hover{color:var(--tx);}
+@keyframes tick{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* MAIN */
+.main{max-width:1300px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+.gap{height:2.5rem;}.gap-sm{height:1.25rem;}
+.sec-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;}
+.sec-hd h2{font-size:20px;font-weight:800;letter-spacing:-.4px;display:flex;align-items:center;gap:9px;}
+.see-all{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--ac);background:rgba(124,106,255,.1);border:1px solid rgba(124,106,255,.2);padding:5px 13px;border-radius:100px;cursor:pointer;border:none;transition:all .2s;}
+.see-all:hover{background:rgba(124,106,255,.2);}
+
+/* RECENTLY PLAYED */
+.rpsec{display:none;}.rpsec.has{display:block;}
+.rpscroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+.rpscroll::-webkit-scrollbar{display:none;}
+.rpcard{display:flex;align-items:center;gap:10px;background:var(--sf);border:1px solid var(--br2);border-radius:12px;padding:10px 14px;cursor:pointer;flex-shrink:0;min-width:185px;transition:all .2s;}
+.rpcard:hover{background:var(--sf2);border-color:var(--ac);}
+.rpimg{width:38px;height:38px;border-radius:8px;background:var(--sf2);overflow:hidden;flex-shrink:0;}
+.rpimg img{width:100%;height:100%;object-fit:cover;}
+.rpname{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px;}
+.rpcat{font-size:10px;color:var(--mu);}
+
+/* CATEGORIES */
+.cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
+.cats::-webkit-scrollbar{display:none;}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;background:var(--sf2);border:1px solid var(--br2);border-radius:100px;font-size:13px;font-weight:600;color:var(--mu2);cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;}
+.chip .cnt{font-size:10px;background:var(--sf3);color:var(--mu);padding:1px 7px;border-radius:100px;font-family:'Space Mono',monospace;}
+.chip:hover{background:var(--sf3);color:var(--tx);}
+.chip.on{background:linear-gradient(135deg,var(--ac),#9b8eff);border-color:transparent;color:#fff;}
+.chip.on .cnt{background:rgba(255,255,255,.2);color:#fff;}
+
+/* SEARCH */
+.sbox-wrap{position:relative;}
+.sbox{display:flex;align-items:center;gap:12px;background:var(--sf);border:1.5px solid var(--br2);border-radius:16px;padding:0 18px;height:58px;transition:border-color .2s,box-shadow .2s;}
+.sbox:focus-within{border-color:var(--ac);box-shadow:0 0 0 4px var(--acg);}
+.sbox input{flex:1;background:none;border:none;outline:none;color:var(--tx);font-family:inherit;font-size:16px;font-weight:500;}
+.sbox input::placeholder{color:var(--mu);}
+.sbox svg{color:var(--mu);flex-shrink:0;}
+.sclear{background:var(--sf3);border:none;color:var(--mu2);padding:6px;border-radius:8px;display:none;align-items:center;justify-content:center;transition:all .2s;}
+.sclear.on{display:flex;}.sclear:hover{color:var(--tx);}
+.sort-row{display:flex;align-items:center;justify-content:space-between;margin:1.25rem 0;gap:1rem;}
+.sopts{display:flex;gap:7px;}
+.sbtn{padding:6px 13px;background:var(--sf2);border:1px solid var(--br);border-radius:8px;font-size:12px;font-weight:600;color:var(--mu2);transition:all .2s;}
+.sbtn:hover{background:var(--sf3);color:var(--tx);}.sbtn.on{background:var(--ac);border-color:var(--ac);color:#fff;}
+#rescnt{font-size:12px;color:var(--mu);font-family:'Space Mono',monospace;}
+#srh{display:none;align-items:center;gap:12px;margin-bottom:1.25rem;}
+#srh.on{display:flex;}#srh h2{font-size:20px;font-weight:800;}
+.srh-clr{background:none;border:none;font-size:13px;color:var(--ac);padding:0;transition:opacity .2s;}.srh-clr:hover{opacity:.7;}
+
+/* GAME GRID */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:15px;}
+.gcard{border-radius:var(--r);overflow:hidden;background:var(--sf);border:1px solid var(--br);cursor:pointer;display:block;transition:transform .25s cubic-bezier(.34,1.2,.64,1),border-color .2s,box-shadow .2s;}
+.gcard:hover{transform:translateY(-6px);border-color:rgba(124,106,255,.4);box-shadow:0 16px 48px rgba(0,0,0,.5),0 0 0 1px rgba(124,106,255,.12);}
+.gthumb{width:100%;aspect-ratio:4/3;background:var(--sf2);overflow:hidden;position:relative;}
+.gthumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s;display:block;}
+.gcard:hover .gthumb img{transform:scale(1.07);}
+.qplay{position:absolute;inset:0;background:rgba(0,0,0,.48);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
+.gcard:hover .qplay{opacity:1;}
+.qpbtn{width:50px;height:50px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;transform:scale(.65);transition:transform .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 4px 24px var(--acg);}
+.gcard:hover .qpbtn{transform:scale(1);}
+.bdg{position:absolute;top:8px;left:8px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;padding:3px 9px;border-radius:100px;z-index:2;}
+.b-hot{background:var(--ac2);color:#fff;}.b-new{background:var(--ac3);color:#003320;}
+.ginfo{padding:11px 13px;}
+.gname{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px;}
+.gmeta{display:flex;align-items:center;justify-content:space-between;}
+.gtag{font-size:11px;font-weight:600;color:var(--mu);background:var(--sf2);padding:2px 8px;border-radius:5px;}
+.grat{font-size:11px;color:#ffd166;font-family:'Space Mono',monospace;}
+mark.hl{background:rgba(124,106,255,.25);color:#c4b8ff;border-radius:3px;padding:0 2px;}
+.empty{display:none;text-align:center;padding:5rem 2rem;grid-column:1/-1;}
+.empty-ico{font-size:58px;margin-bottom:1rem;}
+.empty-ttl{font-size:22px;font-weight:800;margin-bottom:8px;}
+.empty-sub{color:var(--mu);font-size:15px;}
+
+/* NOW PLAYING */
+#npbar{display:none;position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:800;background:rgba(15,15,26,.92);border:1px solid var(--br2);border-radius:16px;padding:11px 18px;backdrop-filter:blur(24px);box-shadow:0 8px 40px rgba(0,0,0,.5);align-items:center;gap:14px;min-width:300px;animation:su .3s cubic-bezier(.34,1.56,.64,1);}
+#npbar.on{display:flex;}
+@keyframes su{from{transform:translateX(-50%) translateY(24px);opacity:0;}to{transform:translateX(-50%) translateY(0);opacity:1;}}
+.np-img{width:38px;height:38px;border-radius:9px;overflow:hidden;flex-shrink:0;background:var(--sf3);}
+.np-img img{width:100%;height:100%;object-fit:cover;}
+.np-info{flex:1;min-width:0;}
+.np-lbl{font-size:9px;color:var(--ac);font-weight:800;text-transform:uppercase;letter-spacing:1px;}
+.np-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.np-close{background:var(--sf3);border:none;color:var(--mu2);width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
+.np-close:hover{background:rgba(255,79,163,.2);color:var(--ac2);}
+
+/* BANNER */
+.banner{margin:2.5rem 0;}
+.binn{border-radius:22px;background:linear-gradient(135deg,#140e38 0%,#0d0d22 45%,#1a0a22 100%);border:1px solid rgba(124,106,255,.2);padding:2.5rem;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;position:relative;overflow:hidden;}
+.binn::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(124,106,255,.15),transparent 70%);pointer-events:none;}
+.btitle{font-size:24px;font-weight:800;margin-bottom:8px;letter-spacing:-.4px;}
+.bsub{color:var(--mu2);font-size:14px;max-width:370px;line-height:1.65;}
+.bacts{display:flex;gap:10px;margin-top:18px;}
+.bemo{font-size:76px;line-height:1;flex-shrink:0;opacity:.65;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--br);padding:3.5rem 2rem;max-width:1300px;margin:4rem auto 0;position:relative;z-index:1;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+.f-sub{color:var(--mu2);font-size:13px;line-height:1.7;margin-top:10px;}
+.f-soc{display:flex;gap:7px;margin-top:14px;}
+.fsoc{width:34px;height:34px;border-radius:9px;background:var(--sf2);border:1px solid var(--br2);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;}
+.fsoc:hover{background:var(--ac);border-color:var(--ac);transform:translateY(-2px);}
+.fcol h4{font-size:12px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
+.fcol a{display:block;color:var(--mu2);font-size:13px;margin-bottom:9px;transition:all .2s;}
+.fcol a:hover{color:var(--tx);padding-left:4px;}
+.fbot{border-top:1px solid var(--br);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;color:var(--mu);font-size:12px;}
+
+/* ═══════════ GAME PAGE ═══════════ */
+#gpview{padding-top:var(--nh);}
+.gp-hero{position:relative;height:380px;overflow:hidden;}
+.gp-bimg{width:100%;height:100%;object-fit:cover;display:block;}
+.gp-bfb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:90px;display:none;}
+.gp-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,16,1) 0%,rgba(8,8,16,.5) 50%,rgba(8,8,16,.1) 100%);}
+.gp-back{position:absolute;top:1.25rem;left:1.5rem;display:inline-flex;align-items:center;gap:8px;background:rgba(8,8,16,.65);backdrop-filter:blur(12px);border:1px solid var(--br2);padding:8px 16px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;z-index:10;}
+.gp-back:hover{background:rgba(8,8,16,.9);}
+.gp-main{max-width:1100px;margin:0 auto;padding:0 2rem 4rem;}
+.gp-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:flex-start;margin-top:-80px;position:relative;z-index:5;margin-bottom:2rem;}
+.gp-left{display:flex;align-items:flex-end;gap:1.5rem;}
+.gp-icon{width:110px;height:110px;border-radius:18px;overflow:hidden;border:3px solid var(--sf2);background:var(--sf3);flex-shrink:0;box-shadow:0 8px 32px rgba(0,0,0,.6);}
+.gp-icon img{width:100%;height:100%;object-fit:cover;}
+.gp-icon-emo{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:50px;}
+.gp-titleblock{padding-bottom:.25rem;}
+.gp-cpill{display:inline-flex;align-items:center;gap:6px;background:rgba(124,106,255,.15);border:1px solid rgba(124,106,255,.25);color:#a99fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:8px;}
+.gp-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;letter-spacing:-.5px;margin-bottom:6px;}
+.gp-metarow{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.gp-mi{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mu2);}
+.gp-mi svg{color:var(--mu);}
+.gp-playbtn{display:inline-flex;align-items:center;gap:10px;padding:0 36px;height:56px;background:linear-gradient(135deg,#00c96b,#00e57a);color:#003a1c;border:none;border-radius:16px;font-size:17px;font-weight:800;cursor:pointer;box-shadow:0 6px 32px rgba(0,229,122,.3);transition:all .25s;white-space:nowrap;flex-shrink:0;align-self:center;}
+.gp-playbtn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 44px rgba(0,229,122,.4);}
+
+/* TABS */
+.gp-tabs{display:flex;gap:0;border-bottom:1px solid var(--br2);margin-bottom:1.5rem;}
+.gp-tab{padding:10px 20px;font-size:14px;font-weight:700;color:var(--mu);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;margin-bottom:-1px;}
+.gp-tab:hover{color:var(--tx);}
+.gp-tab.on{color:var(--ac);border-bottom-color:var(--ac);}
+.gp-tc{display:none;}.gp-tc.on{display:block;}
+
+/* OVERVIEW */
+.gp-cgrid{display:grid;grid-template-columns:1fr 280px;gap:2rem;align-items:start;}
+.gp-desc{color:var(--mu2);font-size:15px;line-height:1.75;max-width:700px;}
+.gp-desc p{margin-bottom:1rem;}.gp-desc p:last-child{margin-bottom:0;}
+.tagcloud{display:flex;flex-wrap:wrap;gap:7px;margin-top:.75rem;}
+.tag{background:var(--sf2);border:1px solid var(--br2);color:var(--mu2);font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px;}
+.gpside{display:flex;flex-direction:column;gap:12px;}
+.gp-icard{background:var(--sf);border:1px solid var(--br2);border-radius:14px;padding:1.25rem;}
+.gp-icard h4{font-size:12px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+.gp-ir{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--br);font-size:13px;}
+.gp-ir:last-child{border-bottom:none;}
+.gp-ir .lbl{color:var(--mu);}.gp-ir .val{font-weight:700;color:var(--tx);}
+.star-bar{display:flex;gap:2px;margin-bottom:4px;}
+.sico{font-size:16px;}
+.ratingbig{font-size:28px;font-weight:800;font-family:'Space Mono',monospace;letter-spacing:-1px;}
+
+/* MEDIA */
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+.media-item{border-radius:12px;overflow:hidden;background:var(--sf2);border:1px solid var(--br);aspect-ratio:16/9;position:relative;cursor:pointer;transition:all .2s;}
+.media-item:hover{border-color:var(--ac);transform:scale(1.01);}
+.media-item img{width:100%;height:100%;object-fit:cover;}
+.media-item iframe{width:100%;height:100%;border:none;}
+.no-media{color:var(--mu);font-size:14px;padding:2rem;line-height:1.7;}
+
+/* RELATED */
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}.hfeat{display:none;}
+  .gp-cgrid{grid-template-columns:1fr;}.gpside{display:none;}
+}
+@media(max-width:768px){
+  .fg{grid-template-columns:1fr 1fr;gap:2rem;}
+  .binn{grid-template-columns:1fr;}.bemo{display:none;}
+  .gp-header{grid-template-columns:1fr;gap:1rem;}
+  nav{padding:0 1rem;}.nsearch{max-width:100%;flex:1;}.nbtn-g{display:none;}
+  .main{padding:0 1rem;}.hero{padding-left:1rem;padding-right:1rem;}
+  .gp-main{padding:0 1rem 3rem;}
+}
+@media(max-width:500px){
+  .ggrid{grid-template-columns:repeat(2,1fr);gap:10px;}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fadeUp .45s ease both;}.fu1{animation-delay:.08s;}.fu2{animation-delay:.16s;}
+
+/* PWA INSTALL BANNER */
+#pwa-banner{display:none;position:fixed;bottom:90px;right:20px;z-index:900;background:linear-gradient(135deg,var(--ac),#9b8eff);border-radius:16px;padding:14px 20px;box-shadow:0 8px 32px var(--acg);animation:su .4s cubic-bezier(.34,1.56,.64,1);max-width:280px;}
+#pwa-banner.show{display:flex;align-items:center;gap:12px;}
+.pwa-ico{font-size:28px;flex-shrink:0;}
+.pwa-txt{flex:1;}
+.pwa-txt strong{display:block;font-size:14px;font-weight:800;color:#fff;margin-bottom:2px;}
+.pwa-txt span{font-size:12px;color:rgba(255,255,255,.75);}
+.pwa-btns{display:flex;gap:8px;margin-top:10px;}
+.pwa-install{background:#fff;color:var(--ac);border:none;border-radius:8px;padding:6px 14px;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s;}.pwa-install:hover{transform:scale(1.05);}
+.pwa-dismiss{background:rgba(255,255,255,.15);color:#fff;border:none;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer;}
+
+/* FLOATING GAME ICONS decoration */
+.float-icons{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+.fi{position:absolute;font-size:28px;opacity:.06;animation:fiFloat linear infinite;}
+@keyframes fiFloat{0%{transform:translateY(100vh) rotate(0deg);}100%{transform:translateY(-120px) rotate(360deg);}}
+
+/* HOW IT WORKS section */
+.how-section{background:var(--sf);border-top:1px solid var(--br);border-bottom:1px solid var(--br);padding:2.5rem 0;position:relative;z-index:1;overflow:hidden;}
+.how-inner{max-width:1300px;margin:0 auto;padding:0 2rem;}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1.5rem;}
+.how-card{background:var(--sf2);border:1px solid var(--br2);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;}
+.how-card:hover{border-color:rgba(124,106,255,.35);transform:translateY(-3px);}
+.how-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:2px;}
+.how-card:nth-child(1)::before{background:linear-gradient(90deg,var(--ac),#9b8eff);}
+.how-card:nth-child(2)::before{background:linear-gradient(90deg,var(--ac2),var(--ac4));}
+.how-card:nth-child(3)::before{background:linear-gradient(90deg,var(--ac3),#00c9ff);}
+.how-num{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:.75rem;}
+.how-ico{font-size:32px;margin-bottom:.75rem;}
+.how-title{font-size:16px;font-weight:800;margin-bottom:.5rem;}
+.how-desc{font-size:13px;color:var(--mu2);line-height:1.65;}
+@media(max-width:768px){.how-grid{grid-template-columns:1fr;gap:12px;}}
+
+/* GENRE HIGHLIGHTS strip */
+.genre-strip{position:relative;z-index:1;padding:2rem 0;overflow:hidden;border-bottom:1px solid var(--br);}
+.genre-track{display:flex;gap:12px;animation:tick 25s linear infinite;width:max-content;}
+.genre-track:hover{animation-play-state:paused;}
+.genre-pill{display:inline-flex;align-items:center;gap:8px;background:var(--sf2);border:1px solid var(--br2);border-radius:100px;padding:9px 20px;font-size:13px;font-weight:700;color:var(--mu2);cursor:pointer;white-space:nowrap;transition:all .2s;flex-shrink:0;}
+.genre-pill:hover{background:var(--sf3);color:var(--tx);border-color:rgba(255,255,255,.15);}
+.genre-pill .g-ico{font-size:16px;}
+
+/* ═══════════ iOS POPUP ═══════════ */
+#ios-popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);z-index:9000;align-items:center;justify-content:center;padding:1.5rem;}
+#ios-popup-overlay.show{display:flex;}
+#ios-popup{background:var(--sf);border:1px solid var(--br2);border-radius:22px;padding:2rem;max-width:400px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.6);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
+@keyframes popIn{from{transform:scale(.85);opacity:0;}to{transform:scale(1);opacity:1;}}
+.ios-popup-icon{font-size:48px;text-align:center;margin-bottom:1rem;line-height:1;}
+.ios-popup-title{font-size:19px;font-weight:800;text-align:center;margin-bottom:.6rem;letter-spacing:-.3px;}
+.ios-popup-body{font-size:14px;color:var(--mu2);text-align:center;line-height:1.7;margin-bottom:1.5rem;}
+.ios-popup-check{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:1.5rem;cursor:pointer;}
+.ios-popup-check input[type=checkbox]{width:16px;height:16px;accent-color:var(--ac);cursor:pointer;flex-shrink:0;}
+.ios-popup-check label{font-size:13px;color:var(--mu2);cursor:pointer;user-select:none;}
+.ios-popup-btns{display:flex;flex-direction:column;gap:10px;}
+.ios-btn-primary{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px 20px;background:linear-gradient(135deg,var(--ac),#9b8eff);color:#fff;border:none;border-radius:13px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 6px 24px var(--acg);transition:all .25s;font-family:inherit;}
+.ios-btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 32px var(--acg);}
+.ios-btn-secondary{display:flex;align-items:center;justify-content:center;width:100%;padding:13px 20px;background:var(--sf2);color:var(--mu2);border:1px solid var(--br2);border-radius:13px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;line-height:1.4;text-align:center;font-family:inherit;}
+.ios-btn-secondary:hover{background:var(--sf3);color:var(--tx);}
+</style>
+</head>
+<body>
+<div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<!-- ═══════════ iOS POPUP ═══════════ -->
+<div id="ios-popup-overlay">
+  <div id="ios-popup">
+    <div class="ios-popup-icon">📱</div>
+    <div class="ios-popup-title">One sec before you play!</div>
+    <div class="ios-popup-body">
+      Hey! We have detected that you are playing on a mobile device. It is highly recommended to download the app to get mobile controls.
+    </div>
+    <div class="ios-popup-check">
+      <input type="checkbox" id="ios-no-show">
+      <label for="ios-no-show">Do not show again</label>
+    </div>
+    <div class="ios-popup-btns">
+      <button class="ios-btn-primary" onclick="iosPopupDownload()">📲 Sure, I'll download it!</button>
+      <button class="ios-btn-secondary" onclick="iosPopupIgnore()">Ignore and continue using PC Controls<br><span style="font-size:11px;opacity:.65;">(Not Recommended)</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo" onclick="showHome()">
+    <div class="logo-icon"><img src="https://i.ibb.co/kVLSbyqc/Cartoon-mascot-style-favicon-icons2-removebg-preview-2.png" alt="SchoolIsBoring mascot"></div>
+    <div class="logo-txt">SchoolIs<span>Boring</span></div>
+  </div>
+  <div class="nsearch">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="nav-in" placeholder="Search games…" autocomplete="off">
+    <span class="kbd">/</span>
+  </div>
+  <div class="nright">
+    <a href="https://x.com/DaxiPaxi" target="_blank" class="nbtn nbtn-g">Twitter</a>
+    <a href="https://x.com/messages/compose?recipient_id=1601648143803863042&text=Hi%20I%20found%20you%20on%20your%20site" target="_blank" class="nbtn nbtn-a">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Feedback
+    </a>
+  </div>
+</nav>
+
+<!-- ══ HOME VIEW ══ -->
+<div class="view active" id="home-view">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="fu">
+        <div class="eyebrow"><div class="edot"></div>100+ Free Browser Games</div>
+        <h1>Play <span class="grad">anything</span>,<br><span class="grad2">anytime</span><br>in your browser.</h1>
+        <p class="hero-sub">No downloads. No installs. No accounts. Pick a game and start playing instantly — on any device.</p>
+        <div class="cta-row">
+          <button class="btn-play" onclick="document.getElementById('ga').scrollIntoView({behavior:'smooth'})">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Browse All Games
+          </button>
+          <button class="btn-r" onclick="openRandom()">🎲 Random Game</button>
+        </div>
+        <div class="sbar">
+          <div class="sitem"><span class="sn" id="total-stat">—</span><span class="sl">Games</span></div>
+          <div class="sitem"><span class="sn">Free</span><span class="sl">Always & forever</span></div>
+          <div class="sitem"><span class="sn">0</span><span class="sl">Ads or sign-ups</span></div>
+        </div>
+      </div>
+      <div class="hfeat fu fu2">
+        <div class="fc big" style="background:linear-gradient(135deg,#1a1040,#2d1b69);" onclick="openGamePage('minecraft-188')">
+          <div class="fc-fb"><img src="https://images.icon-icons.com/2699/PNG/512/minecraft_logo_icon_168974.png" alt="Minecraft"></div>
+          <div class="fc-ov">
+            <div class="fc-badge">⭐ Fan Favorite</div>
+            <div class="fc-title">Minecraft 1.8.8</div>
+            <div class="fc-genre">Sandbox · Survival</div>
+          </div>
+          <button class="fc-pb"><svg width="17" height="17" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+        </div>
+        <div class="fc" style="background:linear-gradient(135deg,#2a0a10,#5a1a1a);" onclick="openGamePage('baldis-basics')">
+          <div class="fc-fb"><img src="https://i.ibb.co/C5NXTMKL/unnamed-6-removebg-preview.png" alt="Baldi"></div>
+          <div class="fc-ov">
+            <div class="fc-title">Baldi's Basics</div>
+            <div class="fc-genre">Horror</div>
+          </div>
+          <button class="fc-pb"><svg width="17" height="17" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+        </div>
+        <div class="fc" style="background:linear-gradient(135deg,#0a1a2a,#1a3a5a);" onclick="openGamePage('fnf')">
+          <div class="fc-fb"><img src="https://i.ibb.co/ZzfF6tsM/0-7-0-fnf-icon.webp" alt="FNF"></div>
+          <div class="fc-ov">
+            <div class="fc-title">Friday Night Funkin'</div>
+            <div class="fc-genre">Music · Rhythm</div>
+          </div>
+          <button class="fc-pb"><svg width="17" height="17" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker-wrap"><div class="ticker-track" id="ticker"></div></div>
+
+  <div class="how-section">
+    <div class="how-inner">
+      <div class="sec-hd" style="margin-bottom:0;">
+        <h2>✨ Why SchoolIsBoring?</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-num">Step 01</div>
+          <div class="how-ico">🖱️</div>
+          <div class="how-title">Click any game</div>
+          <div class="how-desc">Browse 100+ games across horror, Minecraft, music, puzzle, arcade and more. Every game has its own page with a description and screenshots.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">Step 02</div>
+          <div class="how-ico">▶️</div>
+          <div class="how-title">Hit Play Now</div>
+          <div class="how-desc">Press the green Play Now button and the game loads instantly in the same tab. No downloads, no installs, no accounts required. Ever.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-num">Step 03</div>
+          <div class="how-ico">🎮</div>
+          <div class="how-title">Enjoy & come back</div>
+          <div class="how-desc">Your recently played games are remembered automatically. Install SchoolIsBoring as an app for even faster access — works on any device.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="genre-strip">
+    <div class="genre-track" id="genre-track"></div>
+  </div>
+
+  <div class="main">
+    <div class="gap"></div>
+    <div class="rpsec" id="rpsec">
+      <div class="sec-hd">
+        <h2>🕹️ Recently Played</h2>
+        <button class="see-all" onclick="clearHistory()">Clear history</button>
+      </div>
+      <div class="rpscroll" id="rp-list"></div>
+      <div class="gap"></div>
+    </div>
+    <div class="sec-hd fu"><h2>🗂️ Categories</h2></div>
+    <div class="cats fu fu1" id="cats-wrap"></div>
+    <div class="gap" id="ga"></div>
+    <div class="sbox-wrap fu fu2">
+      <div class="sbox">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="main-in" placeholder="Search for a game…" autocomplete="off">
+        <button class="sclear" id="sclear">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="sort-row">
+      <span id="rescnt"></span>
+      <div class="sopts">
+        <button class="sbtn on" data-sort="default">Default</button>
+        <button class="sbtn" data-sort="rating">★ Top Rated</button>
+        <button class="sbtn" data-sort="name">A–Z</button>
+      </div>
+    </div>
+    <div id="srh"><h2 id="srh-ttl">Results</h2><button class="srh-clr" id="srh-clr">✕ Clear</button></div>
+    <div class="ggrid" id="ggrid"></div>
+    <div class="empty" id="empty">
+      <div class="empty-ico">🔍</div>
+      <div class="empty-ttl" id="ettl">Nothing found</div>
+      <div class="empty-sub" id="esub">Try another search term</div>
+    </div>
+    <div class="banner">
+      <div class="binn">
+        <div>
+          <div class="eyebrow" style="margin-bottom:1rem;">💬 Get in touch</div>
+          <div class="btitle">Found a bug? Have a suggestion?</div>
+          <div class="bsub">We read every message. Tell us about broken games, games you want added, or anything else — it's free and we'll actually reply.</div>
+          <div class="bacts">
+            <a href="https://x.com/messages/compose?recipient_id=1601648143803863042&text=Hi%20I%20found%20you%20on%20your%20site" target="_blank" class="btn-play" style="font-size:14px;height:44px;text-decoration:none;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              DM us on Twitter
+            </a>
+            <a href="https://discord.com/users/1053922050353401856" target="_blank" class="btn-r" style="font-size:14px;height:44px;text-decoration:none;">Discord</a>
+          </div>
+        </div>
+        <div class="bemo">🕹️</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="fg">
+      <div>
+        <div class="logo" onclick="showHome()" style="margin-bottom:10px;">
+          <div class="logo-icon"><img src="https://i.ibb.co/kVLSbyqc/Cartoon-mascot-style-favicon-icons2-removebg-preview-2.png" alt="SchoolIsBoring mascot"></div>
+          <div class="logo-txt">SchoolIs<span>Boring</span></div>
+        </div>
+        <div class="f-sub">Your home for free browser games. Play instantly — no downloads, no sign-ups, just fun on any device.</div>
+        <div class="f-soc">
+          <a href="https://www.youtube.com/@DaxiPaxi" class="fsoc" target="_blank">▶</a>
+          <a href="https://x.com/DaxiPaxi" class="fsoc" target="_blank">𝕏</a>
+          <a href="https://discord.com/users/1053922050353401856" class="fsoc" target="_blank">💬</a>
+          <a href="https://www.tiktok.com/@DaxiPaxi1" class="fsoc" target="_blank">♪</a>
+          <a href="https://github.com/DagurSpelar" class="fsoc" target="_blank">⌨</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h4>Fan Favorites</h4>
+        <a href="#" onclick="openGamePage('minecraft-188')">Minecraft 1.8.8</a>
+        <a href="#" onclick="openGamePage('baldis-basics')">Baldi's Basics</a>
+        <a href="#" onclick="openGamePage('fnf')">Friday Night Funkin'</a>
+        <a href="#" onclick="openGamePage('fnaf1')">Five Nights at Freddy's</a>
+        <a href="#" onclick="openGamePage('buckshot')">Buckshot Roulette</a>
+      </div>
+      <div class="fcol">
+        <h4>Socials</h4>
+        <a href="https://www.youtube.com/@DaxiPaxi" target="_blank">YouTube</a>
+        <a href="https://x.com/DaxiPaxi" target="_blank">Twitter / X</a>
+        <a href="https://discord.com/users/1053922050353401856" target="_blank">Discord</a>
+        <a href="https://www.tiktok.com/@DaxiPaxi1" target="_blank">TikTok</a>
+        <a href="https://github.com/DagurSpelar" target="_blank">GitHub</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <a href="https://x.com/messages/compose?recipient_id=1601648143803863042&text=Hi%20I%20found%20you%20on%20your%20site" target="_blank">DM on Twitter</a>
+        <a href="https://discord.com/users/1053922050353401856" target="_blank">Discord DM</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2025 SchoolIsBoring</span>
+      <span>Made with ❤️ for students everywhere</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ══ GAME PAGE VIEW ══ -->
+<div class="view" id="gpview">
+  <div class="gp-hero" id="gp-hero">
+    <img id="gp-bimg" src="" alt="" class="gp-bimg" style="display:none;">
+    <div id="gp-bfb" class="gp-bfb"></div>
+    <div class="gp-grad"></div>
+    <button class="gp-back" onclick="showHome()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to Home
+    </button>
+  </div>
+  <div class="gp-main">
+    <div class="gp-header">
+      <div class="gp-left">
+        <div class="gp-icon" id="gp-icon"></div>
+        <div class="gp-titleblock">
+          <div class="gp-cpill" id="gp-cpill">Category</div>
+          <div class="gp-title" id="gp-title">Title</div>
+          <div class="gp-metarow" id="gp-meta"></div>
+        </div>
+      </div>
+      <a class="gp-playbtn" id="gp-plink" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Play Now
+      </a>
+    </div>
+
+    <div class="gp-tabs">
+      <button class="gp-tab on" data-tab="overview">Overview</button>
+      <button class="gp-tab" data-tab="media">Screenshots & Video</button>
+      <button class="gp-tab" data-tab="related">More Like This</button>
+    </div>
+
+    <div class="gp-tc on" id="tab-overview">
+      <div class="gp-cgrid">
+        <div>
+          <div class="gp-desc" id="gp-desc"></div>
+          <div class="tagcloud" id="gp-tags"></div>
+        </div>
+        <div class="gpside">
+          <div class="gp-icard">
+            <div class="ratingbig" id="gp-rbig">—</div>
+            <div class="star-bar" id="gp-stars"></div>
+            <div style="font-size:12px;color:var(--mu);margin-top:4px;" id="gp-rsub"></div>
+          </div>
+          <div class="gp-icard">
+            <h4>Game Info</h4>
+            <div class="gp-ir"><span class="lbl">Category</span><span class="val" id="si-cat">—</span></div>
+            <div class="gp-ir"><span class="lbl">Rating</span><span class="val" id="si-rat">—</span></div>
+            <div class="gp-ir"><span class="lbl">Platform</span><span class="val">Browser</span></div>
+            <div class="gp-ir"><span class="lbl">Cost</span><span class="val" style="color:var(--ac3);">Free!</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gp-tc" id="tab-media">
+      <div class="media-grid" id="gp-media"></div>
+    </div>
+
+    <div class="gp-tc" id="tab-related">
+      <div class="rel-grid" id="gp-related"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PWA INSTALL BANNER -->
+<div id="pwa-banner">
+  <div style="flex:1;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <img src="https://i.ibb.co/kVLSbyqc/Cartoon-mascot-style-favicon-icons2-removebg-preview-2.png" style="width:36px;height:36px;border-radius:8px;object-fit:contain;">
+      <div>
+        <strong style="display:block;font-size:14px;font-weight:800;color:#fff;">Install SchoolIsBoring</strong>
+        <span style="font-size:11px;color:rgba(255,255,255,.7);">Add to home screen — play anytime!</span>
+      </div>
+    </div>
+    <div class="pwa-btns">
+      <button class="pwa-install" id="pwa-install-btn">📲 Install App</button>
+      <button class="pwa-dismiss" onclick="document.getElementById('pwa-banner').classList.remove('show');localStorage.setItem('pwa_dismissed','1')">Not now</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOW PLAYING BAR -->
+<div id="npbar">
+  <div class="np-img" id="np-img"></div>
+  <div class="np-info">
+    <div class="np-lbl">▶ Now Playing</div>
+    <div class="np-name" id="np-name"></div>
+  </div>
+  <button class="np-close" onclick="document.getElementById('npbar').classList.remove('on')">✕</button>
+</div>
+
+<script>
+const CATS=[
+  {id:'all',label:'All Games',icon:'🎮'},
+  {id:'minecraft',label:'Minecraft',icon:'⛏️'},
+  {id:'horror',label:'Horror',icon:'😱'},
+  {id:'music',label:'Music',icon:'🎵'},
+  {id:'shooting',label:'Shooting',icon:'🔫'},
+  {id:'arcade',label:'Arcade',icon:'👾'},
+  {id:'casual',label:'Casual',icon:'🃏'},
+  {id:'strategy',label:'Strategy',icon:'🧠'},
+  {id:'simulation',label:'Simulation',icon:'🏠'},
+  {id:'puzzle',label:'Puzzle',icon:'🧩'},
+  {id:'multiplayer',label:'Multiplayer',icon:'💃'},
+  {id:'quiz',label:'Quiz',icon:'💡'},
+  {id:'survival',label:'Survival',icon:'🪓'},
+  {id:'idle',label:'Idle',icon:'😴'},
+  {id:'sandbox',label:'Sandbox',icon:'🏰'},
+];
+
+const GAMES=[
+  {id:'minecraft-1122',name:'Minecraft 1.12.2',category:'minecraft',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Minecraft1.12.2',image:'https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png',bg:'#1a1040',rating:4.5,badge:'hot',desc:`<p>Minecraft 1.12.2 — the "World of Color" update. Build anything you can imagine, mine resources, craft tools, and survive the night. This classic version includes full creative and survival modes, running entirely in your browser.</p><p>One of the most popular versions of Minecraft still played today — fast combat, tons of mods compatibility, and a massive player community.</p>`,tags:['Survival','Creative','Open World','Building','Crafting'],media:[{type:'img',src:'https://i.imgur.com/nKsYRdJ.png'},{type:'img',src:'https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png'}]},
+  {id:'minecraft-188',name:'Minecraft 1.8.8',category:'minecraft',url:'https://dagurspelar.github.io/SchoolIsBoring/Minecraft1.8.8',image:'https://images.icon-icons.com/2699/PNG/512/minecraft_logo_icon_168974.png',bg:'#0a2a1a',rating:4.5,badge:null,desc:`<p>Minecraft 1.8.8 — the beloved classic combat version. No hit cooldown means this is many players' favorite PvP version to this day. Mine blocks, build structures, and survive in an infinite procedurally generated world.</p><p>Runs right in your browser. No Java, no launcher, no account needed.</p>`,tags:['Survival','Creative','PvP','Classic','Open World'],media:[{type:'img',src:'https://images.icon-icons.com/2699/PNG/512/minecraft_logo_icon_168974.png'}]},
+  {id:'minecraft-152',name:'Minecraft 1.5.2',category:'minecraft',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Minecraft1.5.2',image:'https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/9/15/1410793019521/55508ad3-2943-4821-8ded-c4f1fd79b744-1024x768.jpeg?width=465&dpr=1&s=none&crop=none',bg:'#1a1040',rating:4.2,badge:null,desc:`<p>Minecraft 1.5.2 — the Redstone Update. One of the most nostalgic versions of Minecraft, playable right here in your browser. Experience the game before all the modern changes.</p><p>Perfect for players who want to relive the old days or discover what made Minecraft so special from the beginning.</p>`,tags:['Nostalgia','Survival','Redstone','Classic'],media:[{type:'img',src:'https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/9/15/1410793019521/55508ad3-2943-4821-8ded-c4f1fd79b744-1024x768.jpeg?width=465&dpr=1&s=none&crop=none'}]},
+  {id:'baldis-basics',name:"Baldi's Basics",category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/Baldi',image:'https://img.itch.zone/aW1hZ2UvMjM5ODQxLzE2NTAzMjUucG5n/original/Y8LdOc.png',bg:'#2a0a10',rating:4.2,badge:'new',desc:`<p>Baldi's Basics in Education and Learning is a parody horror game set in a terrifying school. Collect all 7 notebooks while solving math problems — but every wrong answer makes Baldi faster and angrier.</p><p>Simple mechanics, deep dread. Can you escape the school before he catches you?</p>`,tags:['Horror','Indie','Parody','Stealth','School'],media:[{type:'img',src:'https://img.itch.zone/aW1hZ2UvMjM5ODQxLzE2NTAzMjUucG5n/original/Y8LdOc.png'}]},
+  {id:'baldis-birthday',name:"Baldi's Birthday!",category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/BaldiBirthday',image:'https://img.itch.zone/aW1hZ2UvMzk5MTA5LzE5Nzg0NDIucG5n/original/GicgGo.png',bg:'#2a0a10',rating:4.2,badge:null,desc:`<p>It's Baldi's birthday and things are... different. A special party-themed spin-off that still has all the iconic Baldi tension you know and fear. New items, new decorations, same dread.</p>`,tags:['Horror','Indie','Parody','Birthday'],media:[{type:'img',src:'https://img.itch.zone/aW1hZ2UvMzk5MTA5LzE5Nzg0NDIucG5n/original/GicgGo.png'}]},
+  {id:'baldis-field-trip',name:"Baldi's Field Trip!",category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/BaldiFieldTrip',image:'https://m.media-amazon.com/images/I/81hT98aGmfL.png',bg:'#2a0a10',rating:3.4,badge:null,desc:`<p>Baldi takes his class on a camping field trip — but things go sideways fast. A standalone Baldi experience in a new outdoor setting with new mechanics and surprises.</p>`,tags:['Horror','Indie','Outdoors','Parody'],media:[{type:'img',src:'https://m.media-amazon.com/images/I/81hT98aGmfL.png'}]},
+  {id:'baldis-decompile',name:"Baldi's Ultra Decompile!",category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/BaldiDecompile',image:'https://img.itch.zone/aW1nLzE5MjYyMTg1LnBuZw==/original/MWvkcX.png',bg:'#2a0a10',rating:4.8,badge:'hot',desc:`<p>A heavily modified version of Baldi's Basics that pushes the game to its absolute limits. New characters, new mechanics, and a whole new level of chaos. Rated the highest of all Baldi variants on SchoolIsBoring.</p><p>If you've played regular Baldi and thought it was manageable — think again.</p>`,tags:['Horror','Indie','Modded','Fan-Made','Chaos'],media:[{type:'img',src:'https://img.itch.zone/aW1nLzE5MjYyMTg1LnBuZw==/original/MWvkcX.png'}]},
+  {id:'fnf',name:"Friday Night Funkin'",category:'music',url:'https://dagurspelar.github.io/SchoolIsBoring/FNF',image:'https://i.ibb.co/ZzfF6tsM/0-7-0-fnf-icon.webp',bg:'#0a1a2a',rating:4.9,badge:null,desc:`<p>Friday Night Funkin' is one of the most beloved rhythm games ever made. Help Boyfriend rap-battle through increasingly difficult opponents to impress his Girlfriend's protective dad.</p><p>Hit the arrow keys in time with the music. Miss too many notes and it's game over. Incredibly easy to learn, brutally hard to master — with an amazing soundtrack.</p>`,tags:['Rhythm','Music','Indie','Arrow Keys','Rap Battle'],media:[{type:'img',src:'https://i.ibb.co/ZzfF6tsM/0-7-0-fnf-icon.webp'}]},
+  {id:'geodash',name:'Geometry Dash Lite',category:'music',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/GeoDash',image:'https://play-lh.googleusercontent.com/p7kWbWBFxQIrzolEqiV5uSvctLeyssZvBV7UBOX29wzZI52IdcSs4qCB_zsQJL1mt9A',bg:'#0a1a2a',rating:4.3,badge:null,desc:`<p>Jump and fly your way through danger in this rhythm-based action platformer. One button, perfectly synced music, and some of the most satisfying level design in gaming.</p>`,tags:['Rhythm','Platformer','Music','One-Button','Rage Game'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/p7kWbWBFxQIrzolEqiV5uSvctLeyssZvBV7UBOX29wzZI52IdcSs4qCB_zsQJL1mt9A'}]},
+  {id:'death-ai',name:'Death By AI',category:'multiplayer',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/DeathAI',image:'https://f4.bcbits.com/img/a1456854913_16.jpg',bg:'#0a0a1a',rating:4.6,badge:'hot',desc:`<p>Death By AI is a wild party game where an AI invents creative scenarios trying to kill you, and you type your response to survive.</p>`,tags:['AI','Party','Funny','Multiplayer','Text'],media:[{type:'img',src:'https://f4.bcbits.com/img/a1456854913_16.jpg'}]},
+  {id:'jeffy-cereal',name:"Jeffy's Cereal Search!",category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/JeffySearch',image:'https://img.itch.zone/aW1nLzI1OTU3NjE1LnBuZw==/315x250%23c/rCcDfs.png',bg:'#1a0a2a',rating:5,badge:'hot',desc:`<p>Jeffy from SML stars in this hilarious fan-made horror game.</p>`,tags:['Horror','SML','Funny','Fan-Made','Indie'],media:[{type:'img',src:'https://img.itch.zone/aW1nLzI1OTU3NjE1LnBuZw==/315x250%23c/rCcDfs.png'}]},
+  {id:'jeffy-camp',name:"Jeffy's Cereal — Field Trip Camping",category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/JeffyCamp',image:'https://img.itch.zone/aW1nLzI2NDMzNDg3LmpwZw==/315x250%23c/Xbmszp.jpg',bg:'#1a0a2a',rating:5,badge:null,desc:`<p>The sequel to Jeffy's Cereal Search takes Jeffy on a camping field trip.</p>`,tags:['Horror','SML','Funny','Camping','Fan-Made'],media:[{type:'img',src:'https://img.itch.zone/aW1nLzI2NDMzNDg3LmpwZw==/315x250%23c/Xbmszp.jpg'}]},
+  {id:'granny',name:'Granny',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Granny',image:'https://play-lh.googleusercontent.com/yT_LBq_tyKeIDohKDsqN_Qt18jGIPUYIxY2C-1-E2YA9Qd60uZW08pua17qBmIiDPA',bg:'#2a1a0a',rating:3.7,badge:null,desc:`<p>Escape from Granny's creepy house in 5 days.</p>`,tags:['Horror','Escape','Stealth','First-Person','Jump Scare'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/yT_LBq_tyKeIDohKDsqN_Qt18jGIPUYIxY2C-1-E2YA9Qd60uZW08pua17qBmIiDPA'}]},
+  {id:'granny2',name:'Granny 2',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Granny2',image:'https://play-lh.googleusercontent.com/iZ7NP-56YenT2dpgKEAw3n7IKFyu-S_9Iu3ayo28XYTgZpFtxsK_HXltV36pysSJqq8',bg:'#0a2a2a',rating:4.0,badge:null,desc:`<p>Now BOTH Granny AND Grandpa are after you.</p>`,tags:['Horror','Escape','Stealth','First-Person','Grandpa'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/iZ7NP-56YenT2dpgKEAw3n7IKFyu-S_9Iu3ayo28XYTgZpFtxsK_HXltV36pysSJqq8'}]},
+  {id:'tung-horror',name:'Tung Sahur Horror',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/TungHorror',image:'https://azgames.io/upload/imgs/tungsahurhorror1.png',bg:'#0a1a1a',rating:3.2,badge:null,desc:`<p>A unique horror experience inspired by the viral "Tung Sahur" meme.</p>`,tags:['Horror','Meme','Indie','Jump Scare'],media:[{type:'img',src:'https://azgames.io/upload/imgs/tungsahurhorror1.png'}]},
+  {id:'fnaf1',name:'FNAF 1',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/FNAF1',image:'https://play-lh.googleusercontent.com/myJ2kwywsCRglKkZuHBq6Aku9PX7HB75v-8KbnTK9JOPU6z0hpD9xtvjiTGqrn-e4eI',bg:'#1a0a0a',rating:4.3,badge:null,desc:`<p>Five Nights at Freddy's — the original. Work the night shift at Freddy Fazbear's Pizza and survive from midnight to 6 AM.</p>`,tags:['Horror','Survival','Point-Click','Night Shift','Animatronics'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/myJ2kwywsCRglKkZuHBq6Aku9PX7HB75v-8KbnTK9JOPU6z0hpD9xtvjiTGqrn-e4eI'}]},
+  {id:'fnaf2',name:'FNAF 2',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/FNAF2',image:'https://play-lh.googleusercontent.com/GYcyLlHWoZumcal0WmDJJo2rCFyl3Y0mwXm0zaD-C9gC0PJGQMhzOKHfDUVlqSDlag=w240-h480-rw',bg:'#0a0a1a',rating:3.9,badge:null,desc:`<p>Five Nights at Freddy's 2 — the prequel. More animatronics than ever, and the doors are gone.</p>`,tags:['Horror','Survival','Prequel','Animatronics','Music Box'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/GYcyLlHWoZumcal0WmDJJo2rCFyl3Y0mwXm0zaD-C9gC0PJGQMhzOKHfDUVlqSDlag=w240-h480-rw'}]},
+  {id:'fnaf3',name:'FNAF 3',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/FNAF3',image:'https://m.media-amazon.com/images/I/81paxGYlcqL.png',bg:'#0a0a1a',rating:4.5,badge:null,desc:`<p>Five Nights at Freddy's 3 — only one animatronic can physically harm you.</p>`,tags:['Horror','Survival','Phantoms','Springtrap','Systems'],media:[{type:'img',src:'https://m.media-amazon.com/images/I/81paxGYlcqL.png'}]},
+  {id:'fnaf4',name:'FNAF 4',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/FNAF4',image:'https://play-lh.googleusercontent.com/od7MI1uOFMjj2Kvtk4Tc1Rt-YdDFmgLjE33yZlVINjhbj_NZ5ikZGT_YWpCP0LAGMg',bg:'#0a0a1a',rating:4.7,badge:null,desc:`<p>Five Nights at Freddy's 4 — the most terrifying yet. No cameras, no power meter. Just you, a flashlight, and the sounds coming from the hallways.</p>`,tags:['Horror','Survival','Nightmare','Jump Scare','Listening'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/od7MI1uOFMjj2Kvtk4Tc1Rt-YdDFmgLjE33yZlVINjhbj_NZ5ikZGT_YWpCP0LAGMg'}]},
+  {id:'fnaf-sister',name:'FNAF Sister Location',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/FNAF-Sister',image:'https://sm.ign.com/ign_ap/cover/f/five-night/five-nights-at-freddys-sister-location_n5xe.jpg',bg:'#0a0a1a',rating:4.5,badge:null,desc:`<p>Five Nights at Freddy's: Sister Location — you're a technician in a new underground facility.</p>`,tags:['Horror','Story','Technician','Underground','Funtime'],media:[{type:'img',src:'https://sm.ign.com/ign_ap/cover/f/five-night/five-nights-at-freddys-sister-location_n5xe.jpg'}]},
+  {id:'fruit-ninja',name:'Fruit Ninja!',category:'arcade',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/fruit-ninja',image:'https://play-lh.googleusercontent.com/eJ9OJnbRer1jjg5ZeNAnTXKcGd2B_NEqxCp2UsefcCABeFBaj_pNl_WKYBjup2GVGGc',bg:'#0a0a2a',rating:4.1,badge:null,desc:`<p>Slice fruit, dodge bombs, and set high scores in classic Arcade mode.</p>`,tags:['Arcade','Skill Games','Ninja Games','Mouse Games','2D'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/eJ9OJnbRer1jjg5ZeNAnTXKcGd2B_NEqxCp2UsefcCABeFBaj_pNl_WKYBjup2GVGGc'}]},
+  {id:'temple-run',name:'Temple Run',category:'survival',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/temple-run',image:'https://play-lh.googleusercontent.com/onlNBInQHIZtB2rY24BwrEsUUKwE753ao1BAvvhOw2ePEN1IHIUjaR3gvlGd3jyKTdg',bg:'#0a0a2a',rating:4.1,badge:'new',desc:`<p>Run for your life in this classic endless runner — dodge obstacles, collect coins, and survive the temple.</p>`,tags:['Action Games','Survival','Skill Games','3D Games','Running Games'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/onlNBInQHIZtB2rY24BwrEsUUKwE753ao1BAvvhOw2ePEN1IHIUjaR3gvlGd3jyKTdg'}]},
+  {id:'fnaf-world',name:'FNAF World',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/FNAF-World',image:'https://m.media-amazon.com/images/M/MV5BNDI0NjI3ZDktZDVhNy00YzM0LWJhNjEtZDJiYjc0MTE4YmJkXkEyXkFqcGc@._V1_.jpg',bg:'#0a0a2a',rating:4.3,badge:null,desc:`<p>FNAF World is a turn-based RPG featuring all your favorite Five Nights at Freddy's characters.</p>`,tags:['RPG','FNAF','Turn-Based','Overworld','Spinoff'],media:[{type:'img',src:'https://m.media-amazon.com/images/M/MV5BNDI0NjI3ZDktZDVhNy00YzM0LWJhNjEtZDJiYjc0MTE4YmJkXkEyXkFqcGc@._V1_.jpg'}]},
+  {id:'fnaf-sim',name:'FNAF Pizzeria Simulator',category:'simulation',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/FNAF-Sim',image:'https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/freddy_fazbears_pizzeria_simulator.png',bg:'#0a0a2a',rating:4.0,badge:null,desc:`<p>Run your very own Freddy Fazbear's Pizzeria by day — and survive it by night.</p>`,tags:['Simulation','Tycoon','Horror','FNAF','Management'],media:[{type:'img',src:'https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/freddy_fazbears_pizzeria_simulator.png'}]},
+  {id:'akinator',name:'Akinator',category:'casual',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Akinator',image:'https://play-lh.googleusercontent.com/MsLoIjuGogtJsjeZQ_xBTbFyz4Oe-wD8dnJf2uzmMk6NiBklRlKvBHJwGGs7l3Xs-YQfxqfSAwn6lkk3vDFV',bg:'#0a1a1a',rating:4.0,badge:null,desc:`<p>Think of any character and watch the Web Genie figure out exactly who you're thinking of.</p>`,tags:['Guessing','Casual','Genie','AI','Mind Reading'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/MsLoIjuGogtJsjeZQ_xBTbFyz4Oe-wD8dnJf2uzmMk6NiBklRlKvBHJwGGs7l3Xs-YQfxqfSAwn6lkk3vDFV'}]},
+  {id:'cookie',name:'Cookie Clicker',category:'casual',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Cookie',image:'https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok',bg:'#1a1a0a',rating:4.5,badge:null,desc:`<p>Click the big cookie. Buy grandmas. Build factories. Own cookie portals to other dimensions.</p>`,tags:['Idle','Clicker','Casual','Addictive','Cookie'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok'}]},
+  {id:'mr-bullet',name:'Mr. Bullet',category:'shooting',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/MrBullet',image:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/d499967bc8e1634c9ffa5d83d8cc4a49/mr-bullet.png',bg:'#0a1a2a',rating:4.2,badge:null,desc:`<p>Calculate the perfect shot and eliminate all the bad guys using as few bullets as possible.</p>`,tags:['Shooting','Puzzle','Physics','One-Shot','Strategy'],media:[{type:'img',src:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/d499967bc8e1634c9ffa5d83d8cc4a49/mr-bullet.png'}]},
+  {id:'soundboards',name:'Soundboards!',category:'casual',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/soundboards',image:'https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000052774/2cfc7a4a88bff9fc2d2e758e705dbe5a585f241477359a198b0881e5aa45f5bd',bg:'#1a1a0a',rating:3.9,badge:null,desc:`<p>Tap buttons to hear sounds from well-known memes. Each meme has a unique and entertaining sound.</p>`,tags:['Casual','Funny','Meme games','2D'],media:[{type:'img',src:'https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000052774/2cfc7a4a88bff9fc2d2e758e705dbe5a585f241477359a198b0881e5aa45f5bd'}]},
+  {id:'sprunki',name:'Sprunki',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Sprunki',image:'https://imgs.crazygames.com/games/sprunki-itn/cover_16x9-1732009692724.png?metadata=none&quality=60&height=6378',bg:'#0a1a2a',rating:4.0,badge:null,desc:`<p>A casual music game that lets you craft unique soundscapes — mix loops, vocals, beats, and melodies.</p>`,tags:['Casual','Horror','Music','2D','Scratch'],media:[{type:'img',src:'https://imgs.crazygames.com/games/sprunki-itn/cover_16x9-1732009692724.png?metadata=none&quality=60&height=6378'}]},
+  {id:'melon',name:'Melon SandBox',category:'simulation',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Melon',image:'https://play-lh.googleusercontent.com/9KgS1cF6vWMF9Fl25S36bKr8zDh0ddkTOeN7WpBcQAE-pKfahG2DjUxbQ8sespNoe3KW3qbcaVD8H6DfNys6',bg:'#0a1a2a',rating:4.4,badge:null,desc:`<p>A physics-based sandbox game where you spawn characters and objects and watch the chaos unfold.</p>`,tags:['Sandbox','Physics','Simulation','Destruction','Casual'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/9KgS1cF6vWMF9Fl25S36bKr8zDh0ddkTOeN7WpBcQAE-pKfahG2DjUxbQ8sespNoe3KW3qbcaVD8H6DfNys6'}]},
+  {id:'clone-neighbour',name:'Clone or Neighbour?',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/CloneOrNeighbour',image:'https://kbhgames.com/wp-content/uploads/2025/05/clone-or-neighbor-2.webp',bg:'#0a1a2a',rating:3.8,badge:null,desc:`<p>Can you tell who is real and who is a clone? A paranoid horror game where you must identify the imposter.</p>`,tags:['Horror','Puzzle','Mystery','Clones','Paranoia'],media:[{type:'img',src:'https://kbhgames.com/wp-content/uploads/2025/05/clone-or-neighbor-2.webp'}]},
+  {id:'school-sim',name:'School Teacher Simulator',category:'quiz',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/SchoolSim',image:'https://play-lh.googleusercontent.com/PLiG5dCHA7li1KZxfJJ8Tfz6kGzJ0il44-BNwaTZCpudtBTJ2J0OfitHtGfH9ddIytHe',bg:'#0a1a2a',rating:3.5,badge:null,desc:`<p>You're the teacher now. Manage a chaotic classroom and deal with the absurdity of school life.</p>`,tags:['Simulation','Quiz','School','Comedy','Management'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/PLiG5dCHA7li1KZxfJJ8Tfz6kGzJ0il44-BNwaTZCpudtBTJ2J0OfitHtGfH9ddIytHe'}]},
+  {id:'slender',name:'SLENDER',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Slender',image:'https://play-lh.googleusercontent.com/ZfCizpFVFJV1KVC0XxScZXNQI4IZxH4RvsBY1vIcWmTs5Hw12FpmOLPUZWFplzHY1hk',bg:'#0a1a2a',rating:4.4,badge:null,desc:`<p>Collect 8 pages in the dark woods while Slender Man stalks you. Don't look at him.</p>`,tags:['Horror','First-Person','Slender Man','Woods','Survival'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/ZfCizpFVFJV1KVC0XxScZXNQI4IZxH4RvsBY1vIcWmTs5Hw12FpmOLPUZWFplzHY1hk'}]},
+  {id:'block-blast',name:'Block Blast',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Block',image:'https://play-lh.googleusercontent.com/R0qgNDYYHbRhw6JFsdEbDMqONplEvJx0m0W9wzYVvY3eNF1c2rfBWYjQxW0sLEzFe1E',bg:'#0a1a2a',rating:4.7,badge:null,desc:`<p>Drag and drop blocks onto an 8x8 grid to fill and clear rows and columns. The most satisfying Tetris-like puzzle game available.</p>`,tags:['Puzzle','Block','Casual','Relaxing','Grid'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/R0qgNDYYHbRhw6JFsdEbDMqONplEvJx0m0W9wzYVvY3eNF1c2rfBWYjQxW0sLEzFe1E'}]},
+  {id:'flappy',name:'Flappy Bird',category:'arcade',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Flappy',image:'https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png',bg:'#0a1a2a',rating:4.7,badge:null,desc:`<p>Tap to keep your bird flying through gaps between pipes. One button. Brutally hard. Impossible to stop playing.</p>`,tags:['Arcade','One-Button','Rage Game','Classic','Bird'],media:[{type:'img',src:'https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png'}]},
+  {id:'subway',name:'Subway Surfers',category:'casual',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Subway',image:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/fc09ae107e5bbe1531e5d87d216b09f8/subway-surfers.png',bg:'#0a1a2a',rating:4.5,badge:null,desc:`<p>Run, jump, and slide through endless subway tracks while being chased by the inspector and his dog.</p>`,tags:['Endless Runner','Casual','Mobile','Coins','Hoverboard'],media:[{type:'img',src:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/fc09ae107e5bbe1531e5d87d216b09f8/subway-surfers.png'}]},
+  {id:'backrooms',name:'The BackRooms',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/BackRooms',image:'https://play-lh.googleusercontent.com/363qcJv7p0F1lH5n_2WIdEhf45znbtmp-IyOVclu9zN9mFUBjQKO6rJg1q6m0qxjBg',bg:'#0a1a2a',rating:4.0,badge:null,desc:`<p>You've noclipped out of reality. Now you're in The Backrooms — find your way out.</p>`,tags:['Horror','Exploration','Liminal Space','First-Person','Atmospheric'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/363qcJv7p0F1lH5n_2WIdEhf45znbtmp-IyOVclu9zN9mFUBjQKO6rJg1q6m0qxjBg'}]},
+  {id:'amanda',name:'AMANDA THE ADVENTURER',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Amanda',image:'https://image.api.playstation.com/vulcan/ap/rnd/202409/2320/4369144c78d2258aa5691db28d6b1bf94f45a9e68230d061.png',bg:'#0a1a2a',rating:4.7,badge:null,desc:`<p>Discover old VHS tapes featuring a children's cartoon called "Amanda the Adventurer" — but something is deeply wrong with Amanda.</p>`,tags:['Horror','Mystery','VHS','Puzzle','Atmospheric','Story'],media:[{type:'img',src:'https://image.api.playstation.com/vulcan/ap/rnd/202409/2320/4369144c78d2258aa5691db28d6b1bf94f45a9e68230d061.png'}]},
+  {id:'teacher3d',name:'Scary Teacher 3D',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Teacher3D',image:'https://play-lh.googleusercontent.com/fDrmI52HfyXG_ulhvKMQlFnkY3AXzCgWTc5jKVs1CsAjq9hM28v31esgLFAOSkQS99I',bg:'#0a1a2a',rating:4.3,badge:null,desc:`<p>Sneak into your scary teacher's house and pull pranks while avoiding getting caught.</p>`,tags:['Horror','Stealth','Comedy','Teacher','Pranks'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/fDrmI52HfyXG_ulhvKMQlFnkY3AXzCgWTc5jKVs1CsAjq9hM28v31esgLFAOSkQS99I'}]},
+  {id:'guess-meme',name:'Guess the Memes!',category:'quiz',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/GuessMeme',image:'https://play-lh.googleusercontent.com/FkH1BcGAV9OWDTeL2EciLZ2FP7so0gPAsuu7a8Imm9VHFYa8mFwPYKHS_gM9pPUDNwCD4iPsupMSjltrbdBX',bg:'#0a1a2a',rating:4.2,badge:null,desc:`<p>How deep is your meme knowledge? Guess the name of classic and modern internet memes from images.</p>`,tags:['Quiz','Memes','Internet','Funny','Knowledge'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/FkH1BcGAV9OWDTeL2EciLZ2FP7so0gPAsuu7a8Imm9VHFYa8mFwPYKHS_gM9pPUDNwCD4iPsupMSjltrbdBX'}]},
+  {id:'buckshot',name:'Buckshot Roulette',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Buckshot',image:'https://i.ibb.co/KpSqnQRm/Thedealer.webp',bg:'#0a0a0a',rating:4.8,badge:'hot',desc:`<p>You're playing roulette with a shotgun across a dark table from a demonic dealer. One of the most original horror games of recent years.</p>`,tags:['Horror','Card Game','Strategy','Shotgun','Atmospheric','Unique'],media:[{type:'img',src:'https://i.ibb.co/KpSqnQRm/Thedealer.webp'}]},
+  {id:'suika',name:'Suika Game',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/Suika',image:'https://assetsio.gnwcdn.com/NSwitchDS_SuikaGame_01.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp',bg:'#0a0a0a',rating:3.9,badge:'hot',desc:`<p>Group fruits of the same type to evolve them into larger fruits, with the highest level being watermelon.</p>`,tags:['Puzzle','Card Game','Strategy','Casual','Food','2D'],media:[{type:'img',src:'https://assetsio.gnwcdn.com/NSwitchDS_SuikaGame_01.jpg?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp'}]},
+  {id:'merge-fellas',name:'Merge Fellas',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/MergeTheFella',image:'https://play-lh.googleusercontent.com/4YWdyf9cPlbMtg0wW57WEB_i5Fse2Br21NkCyHSDOor_S_GXTYoo84sRak7JT6hBk25uhypnREpI1ksECM7r4Wc=w240-h480-rw',bg:'#0a0a0a',rating:3.9,badge:'hot',desc:`<p>Merge memes in this addictive puzzle game! Drop and merge cute pets to train your brain.</p>`,tags:['Puzzle','Card Game','Strategy','Casual','Food','2D'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/4YWdyf9cPlbMtg0wW57WEB_i5Fse2Br21NkCyHSDOor_S_GXTYoo84sRak7JT6hBk25uhypnREpI1ksECM7r4Wc=w240-h480-rw'}]},
+  {id:'brainrot-merge',name:'Brainrot Merge!',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/BrainrotMerge',image:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/57d3c9b42a83ba9e7dd0e680407d1672/brainrot-merge.png',bg:'#0a0a0a',rating:4.3,badge:'hot',desc:`<p>Italian Brainrot Merge is a chaotic merge challenge where viral internet creatures collide in fast-paced puzzle mayhem.</p>`,tags:['Puzzle','Card Game','Strategy','Casual','Food','2D'],media:[{type:'img',src:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/57d3c9b42a83ba9e7dd0e680407d1672/brainrot-merge.png'}]},
+  {id:'talking-ben',name:'Talking Ben the Dog!',category:'casual',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/TalkingBen',image:'https://play-lh.googleusercontent.com/UHJucY_bVsxX6haKhPt0e6Eua4N4MhJGOnrt3laNZXPMYDGUgPtLNISvdlkUvODwu00B=w240-h480-rw',bg:'#0a0a0a',rating:4.1,badge:'hot',desc:`<p>Ben is a retired chemistry professor. Bother him enough and he'll fold his newspaper, then you can talk to him!</p>`,tags:['Casual','Entertainment','Scratch','Interactive','Animals','2D'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/UHJucY_bVsxX6haKhPt0e6Eua4N4MhJGOnrt3laNZXPMYDGUgPtLNISvdlkUvODwu00B=w240-h480-rw'}]},
+  {id:'charlie-the-steak',name:'Charlie The Steak!',category:'casual',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/CharlieSteak',image:'https://i.ibb.co/VpcY0Z5R/Charlie.webp',bg:'#0a0a0a',rating:4.6,badge:'hot',desc:`<p>Join Charlie, the most adventurous steak you'll ever meet, on a hilarious journey through kitchen hazards.</p>`,tags:['Casual','Entertainment','Scratch','Challenge','Food','2D'],media:[{type:'img',src:'https://i.ibb.co/VpcY0Z5R/Charlie.webp'}]},
+  {id:'build-my-brainrot',name:'Build My Brainrot',category:'survival',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/BuildBrainrot',image:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=314,height=314,fit=cover,f=auto/f72c0d0c38f96a0a8f486fe1315302e6/build-my-brainrot.png',bg:'#0a0a0a',rating:4.2,badge:null,desc:`<p>An idle game where you gather blocks to build funny brainrot characters!</p>`,tags:['Survival','Idle','Crafting','Meme Games','Brainrot Games','Casual'],media:[{type:'img',src:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=314,height=314,fit=cover,f=auto/f72c0d0c38f96a0a8f486fe1315302e6/build-my-brainrot.png'}]},
+  {id:'draw-mine-mobs',name:'Draw Mine Mobs!',category:'minecraft',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/DrawMineMobs',image:'https://static.playhop.com/images/154a6_18880415_544fc/89bd7a2e3/2a00000199513aa3_6d52c8d/86196d706b45f5f81ab3_a978a7/orig',bg:'#0a0a0a',rating:4.5,badge:null,desc:`<p>Color and recreate the appearances of beloved Minecraft characters like Steve, Creeper, Zombie, and more.</p>`,tags:['2D','Minecraft','Learning','Coloring','Relaxing','Casual'],media:[{type:'img',src:'https://static.playhop.com/images/154a6_18880415_544fc/89bd7a2e3/2a00000199513aa3_6d52c8d/86196d706b45f5f81ab3_a978a7/orig'}]},
+  {id:'escape-sigma-cat-horror',name:'Escape Sigma Cat Horror',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/SigmaHorrorCat',image:'https://playgama.com/cdn-cgi/imagedelivery/LN2S-4p3-GgZvEx3IPaKUA/13441e3e-f077-47d1-ce66-c8ac7fb12700/thumb',bg:'#0a0a0a',rating:2.4,badge:null,desc:`<p>Find 20 apples and survive while Sigma Cat hunts you down. Simple goal, terrifying tension.</p>`,tags:['Horror','Scary','Meme Games','Animals','Escape','Unity'],media:[{type:'img',src:'https://playgama.com/cdn-cgi/imagedelivery/LN2S-4p3-GgZvEx3IPaKUA/13441e3e-f077-47d1-ce66-c8ac7fb12700/thumb'}]},
+  {id:'the-backrooms-meeting-with-shrek-wazowski',name:'The Backrooms: Meeting with Shrek Wazowski',category:'horror',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/ShrekBackrooms',image:'https://playgama.com/cdn-cgi/imagedelivery/LN2S-4p3-GgZvEx3IPaKUA/c1e4814f-cc3c-4749-01ca-05bf5d5dd900/enlarged',bg:'#0a0a0a',rating:4.3,badge:null,desc:`<p>You've found yourself in the hidden chambers of Shrek Wazowski. Avoid being seen and gather his onions to escape.</p>`,tags:['Horror','Scary','Meme Games','First-Person','Escape','Unity'],media:[{type:'img',src:'https://playgama.com/cdn-cgi/imagedelivery/LN2S-4p3-GgZvEx3IPaKUA/c1e4814f-cc3c-4749-01ca-05bf5d5dd900/enlarged'}]},
+  {id:'the-superhero-league',name:'The SuperHero League',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/SuperHeroLeague',image:'https://cdn.aptoide.com/imgs/7/5/4/754437f1a05760987571c1a9ea46901b_fgraphic.png',bg:'#0a0a0a',rating:4.6,badge:null,desc:`<p>Defeat enemies with superhero powers — lift, burn, freeze opponents. Solve challenging puzzles with unique abilities.</p>`,tags:['Action Games','Brain Games','Physics','Strategy','Puzzle','Unity'],media:[{type:'img',src:'https://cdn.aptoide.com/imgs/7/5/4/754437f1a05760987571c1a9ea46901b_fgraphic.png'}]},
+  {id:'save-the-dog',name:'Save The Dog!',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/SaveDog',image:'https://avatars.mds.yandex.net/get-games/1892995/2a00000184b12e12b64eccb4c8026cee1a17/orig',bg:'#0a0a0a',rating:4.0,badge:null,desc:`<p>Draw lines to create a wall that protects the dog from bees and other dangers!</p>`,tags:['Cute','Brain Games','Physics','Strategy','Puzzle','Animals'],media:[{type:'img',src:'https://avatars.mds.yandex.net/get-games/1892995/2a00000184b12e12b64eccb4c8026cee1a17/orig'}]},
+  {id:'happy-glass',name:'Happy Glass!',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/HappyGlass',image:'https://play-lh.googleusercontent.com/7VJ9701x6LvCdYp5Idd7FHl2b4Botdu0t_NfAn8eXGiyQzpfXVpi4nRQ48jjdvOewyo',bg:'#0a0a0a',rating:3.2,badge:null,desc:`<p>The glass is sad because it's empty. Draw a line to fill the glass with liquid and make it smile!</p>`,tags:['Cute','Brain Games','Physics','Strategy','Puzzle','Fun'],media:[{type:'img',src:'https://play-lh.googleusercontent.com/7VJ9701x6LvCdYp5Idd7FHl2b4Botdu0t_NfAn8eXGiyQzpfXVpi4nRQ48jjdvOewyo'}]},
+  {id:'recue-the-fish',name:'Rescue The Fish!',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/RescueFish',image:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/f99a4b047b60358b3ed234e3d0fac330/rescue-the-fish.png',bg:'#0a0a0a',rating:4.5,badge:null,desc:`<p>Pull the right pins to guide a little fish safely back to the ocean while avoiding hazards.</p>`,tags:['Cute','Brain Games','Animals','Strategy','Puzzle','Fun'],media:[{type:'img',src:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/f99a4b047b60358b3ed234e3d0fac330/rescue-the-fish.png'}]},
+  {id:'slice-master',name:'Slice Master',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/slicemaster',image:'https://imgs.crazygames.com/slice-master_16x9/20240731033229/slice-master_16x9-cover?metadata=none&quality=100&width=1200&height=630&fit=crop',bg:'#0a0a0a',rating:4.3,badge:null,desc:`<p>Flip a spinning knife through levels packed with objects to slice and obstacles to avoid.</p>`,tags:['Physics','Brain Games','Skill Games','Strategy','Puzzle','Fun'],media:[{type:'img',src:'https://imgs.crazygames.com/slice-master_16x9/20240731033229/slice-master_16x9-cover?metadata=none&quality=100&width=1200&height=630&fit=crop'}]},
+  {id:'draw-wire',name:'Draw Wire',category:'puzzle',url:'https://dagurspelar.github.io/SchoolIsBoring/AllTheGames/DrawWire',image:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/655366d80ea0b3ac3c60867d8ff8c142/draw-wire.png',bg:'#0a0a0a',rating:4.3,badge:null,desc:`<p>Connect electrical appliances to their power source across 50+ levels of increasing difficulty.</p>`,tags:['Drawing Games','Brain Games','Puzzle Games','Casual','Puzzle','Fun'],media:[{type:'img',src:'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=1200,height=1200,fit=cover,f=png/655366d80ea0b3ac3c60867d8ff8c142/draw-wire.png'}]},
+];
+
+/* ═══════════ iOS POPUP LOGIC ═══════════ */
+function isIOS(){
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+}
+function iosPopupIgnore(){
+  if(document.getElementById('ios-no-show').checked){
+    localStorage.setItem('sib_ios_popup_dismissed','1');
+  }
+  document.getElementById('ios-popup-overlay').classList.remove('show');
+}
+function iosPopupDownload(){
+  if(document.getElementById('ios-no-show').checked){
+    localStorage.setItem('sib_ios_popup_dismissed','1');
+  }
+  document.getElementById('ios-popup-overlay').classList.remove('show');
+  // Download page will be handled later — for now just close
+}
+function maybeShowIosPopup(){
+  if(!isIOS()) return;
+  if(localStorage.getItem('sib_ios_popup_dismissed')==='1') return;
+  document.getElementById('ios-popup-overlay').classList.add('show');
+}
+
+/* STATE */
+let activeCat='all',searchQ='',activeSort='default';
+let recent=JSON.parse(localStorage.getItem('sib_recent')||'[]');
+
+/* ROUTING */
+function showHome(){
+  document.getElementById('home-view').classList.add('active');
+  document.getElementById('gpview').classList.remove('active');
+  window.scrollTo(0,0);
+}
+function showGP(){
+  document.getElementById('home-view').classList.remove('active');
+  document.getElementById('gpview').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+/* HELPERS */
+function catLabel(id){return CATS.find(c=>c.id===id)?.label||id;}
+function catIcon(id){return CATS.find(c=>c.id===id)?.icon||'🎮';}
+function escRE(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function hl(t,q){return !q?t:t.replace(new RegExp('('+escRE(q)+')','gi'),'<mark class="hl">$1</mark>');}
+function starsHTML(r){let s='',f=Math.round(r);for(let i=0;i<5;i++)s+=`<span class="sico">${i<f?'★':'☆'}</span>`;return s;}
+
+/* TICKER */
+function buildTicker(){
+  const t=document.getElementById('ticker');
+  const items=GAMES.map(g=>`<div class="ti" onclick="openGamePage('${g.id}')">🎮 ${g.name}</div>`).join('');
+  t.innerHTML=items+items;
+}
+
+/* GAME PAGE */
+function openGamePage(id){
+  const g=GAMES.find(x=>x.id===id);if(!g)return;
+  saveRecent(g);
+  const bi=document.getElementById('gp-bimg'),bf=document.getElementById('gp-bfb');
+  document.getElementById('gp-hero').style.background=g.bg;
+  if(g.image){
+    bi.src=g.image;bi.style.display='block';bf.style.display='none';
+    bi.onerror=()=>{bi.style.display='none';bf.style.display='flex';bf.textContent='🎮';};
+  } else {
+    bi.style.display='none';bf.style.display='flex';bf.textContent='🎮';
+  }
+  const ic=document.getElementById('gp-icon');
+  ic.innerHTML=g.image?`<img src="${g.image}" alt="" onerror="this.parentNode.innerHTML='<div class=gp-icon-emo>🎮</div>'">`:
+    `<div class="gp-icon-emo">🎮</div>`;
+  const ci=CATS.find(c=>c.id===g.category);
+  document.getElementById('gp-cpill').innerHTML=`${ci?.icon||'🎮'} ${ci?.label||g.category}`;
+  document.getElementById('gp-title').textContent=g.name;
+  document.getElementById('gp-meta').innerHTML=`
+    <div class="gp-mi">${starsHTML(g.rating)} &nbsp;${g.rating.toFixed(1)}</div>
+    <div class="gp-mi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Free to play</div>
+    <div class="gp-mi"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> Browser</div>`;
+  const pl=document.getElementById('gp-plink');
+  pl.href=g.url;
+  pl.removeAttribute('target');
+  document.getElementById('gp-rbig').textContent=g.rating.toFixed(1);
+  document.getElementById('gp-stars').innerHTML=starsHTML(g.rating);
+  document.getElementById('gp-rsub').textContent=`${g.rating>=4.5?'Excellent':g.rating>=4?'Great':g.rating>=3.5?'Good':'Mixed'} rating`;
+  document.getElementById('si-cat').textContent=ci?.label||g.category;
+  document.getElementById('si-rat').textContent=`★ ${g.rating.toFixed(1)} / 5.0`;
+  document.getElementById('gp-desc').innerHTML=g.desc||'<p>No description yet.</p>';
+  document.getElementById('gp-tags').innerHTML=(g.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+  const med=document.getElementById('gp-media');
+  if(g.media&&g.media.length){
+    med.innerHTML=g.media.map(m=>
+      m.type==='vid'
+        ?`<div class="media-item"><iframe src="${m.src}" allowfullscreen></iframe></div>`
+        :`<div class="media-item"><img src="${m.src}" alt="Screenshot" onerror="this.style.display='none'"></div>`
+    ).join('');
+  } else {
+    med.innerHTML=`<div class="no-media">📸 No screenshots yet.</div>`;
+  }
+  let related=GAMES.filter(x=>x.id!==g.id&&x.category===g.category).slice(0,8);
+  if(!related.length) related=GAMES.filter(x=>x.id!==g.id).slice(0,8);
+  document.getElementById('gp-related').innerHTML=related.map(r=>gcardHTML(r,false)).join('');
+  document.querySelectorAll('.gp-tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.gp-tc').forEach(c=>c.classList.remove('on'));
+  document.querySelector('.gp-tab[data-tab="overview"]').classList.add('on');
+  document.getElementById('tab-overview').classList.add('on');
+  showGP();
+}
+
+document.querySelectorAll('.gp-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.gp-tab').forEach(t=>t.classList.remove('on'));
+    document.querySelectorAll('.gp-tc').forEach(c=>c.classList.remove('on'));
+    tab.classList.add('on');
+    document.getElementById('tab-'+tab.dataset.tab).classList.add('on');
+  });
+});
+
+/* RECENTLY PLAYED */
+function saveRecent(g){
+  recent=recent.filter(r=>r.id!==g.id);
+  recent.unshift({id:g.id,name:g.name,image:g.image,category:g.category});
+  if(recent.length>8)recent=recent.slice(0,8);
+  localStorage.setItem('sib_recent',JSON.stringify(recent));
+  renderRecent();
+  document.getElementById('np-name').textContent=g.name;
+  document.getElementById('np-img').innerHTML=`<img src="${g.image}" alt="" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">`;
+  document.getElementById('npbar').classList.add('on');
+}
+function renderRecent(){
+  const sec=document.getElementById('rpsec'),list=document.getElementById('rp-list');
+  if(!recent.length){sec.classList.remove('has');return;}
+  sec.classList.add('has');
+  list.innerHTML=recent.map(g=>`
+    <div class="rpcard" onclick="openGamePage('${g.id}')">
+      <div class="rpimg"><img src="${g.image}" alt="" onerror="this.style.display='none'"></div>
+      <div><div class="rpname">${g.name}</div><div class="rpcat">${catIcon(g.category)} ${catLabel(g.category)}</div></div>
+    </div>`).join('');
+}
+function clearHistory(){recent=[];localStorage.removeItem('sib_recent');renderRecent();}
+
+/* CATEGORIES */
+function buildCats(){
+  const w=document.getElementById('cats-wrap');w.innerHTML='';
+  CATS.forEach(cat=>{
+    const count=cat.id==='all'?GAMES.length:GAMES.filter(g=>g.category===cat.id).length;
+    if(!count&&cat.id!=='all')return;
+    const d=document.createElement('div');
+    d.className='chip'+(cat.id===activeCat?' on':'');
+    d.innerHTML=`${cat.icon} ${cat.label} <span class="cnt">${count}</span>`;
+    d.addEventListener('click',()=>{
+      activeCat=cat.id;searchQ='';
+      document.getElementById('main-in').value='';
+      document.getElementById('nav-in').value='';
+      document.getElementById('sclear').classList.remove('on');
+      document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+      d.classList.add('on');
+      renderGames();
+      document.getElementById('ga').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    w.appendChild(d);
+  });
+}
+
+/* RANDOM */
+function openRandom(){openGamePage(GAMES[Math.floor(Math.random()*GAMES.length)].id);}
+
+/* GAME CARD HTML */
+function gcardHTML(game,isS){
+  const badge=game.badge==='hot'?`<span class="bdg b-hot">🔥 Hot</span>`:game.badge==='new'?`<span class="bdg b-new">✨ New</span>`:'';
+  const dn=isS?hl(game.name,searchQ.trim()):game.name;
+  return `<div class="gcard" onclick="openGamePage('${game.id}')">
+    <div class="gthumb" style="background:${game.bg};">
+      <img src="${game.image}" alt="${game.name}" loading="lazy" onerror="this.style.display='none'">
+      ${badge}
+      <div class="qplay"><div class="qpbtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>
+    </div>
+    <div class="ginfo">
+      <div class="gname">${dn}</div>
+      <div class="gmeta"><span class="gtag">${catLabel(game.category)}</span><span class="grat">★ ${game.rating.toFixed(1)}</span></div>
+    </div>
+  </div>`;
+}
+
+/* RENDER GAMES */
+function renderGames(){
+  const grid=document.getElementById('ggrid'),emp=document.getElementById('empty');
+  const srh=document.getElementById('srh'),srhT=document.getElementById('srh-ttl'),cntEl=document.getElementById('rescnt');
+  const q=searchQ.trim().toLowerCase(),isS=q.length>0;
+  let f=activeCat==='all'?[...GAMES]:GAMES.filter(g=>g.category===activeCat);
+  if(isS)f=f.filter(g=>g.name.toLowerCase().includes(q));
+  if(activeSort==='rating')f.sort((a,b)=>b.rating-a.rating);
+  else if(activeSort==='name')f.sort((a,b)=>a.name.localeCompare(b.name));
+  if(isS){srh.classList.add('on');srhT.textContent=f.length?`${f.length} result${f.length!==1?'s':''} for "${searchQ.trim()}"`:` No results for "${searchQ.trim()}"`;cntEl.textContent='';}
+  else{srh.classList.remove('on');cntEl.textContent=`${f.length} game${f.length!==1?'s':''}`;}
+  if(!f.length){grid.style.display='none';emp.style.display='block';
+    document.getElementById('ettl').textContent=isS?`Nothing for "${searchQ.trim()}"`:' No games here';
+    document.getElementById('esub').textContent=isS?'Try a different search term.':'Check back soon!';return;}
+  grid.style.display='grid';emp.style.display='none';
+  grid.innerHTML=f.map(g=>gcardHTML(g,isS)).join('');
+}
+
+/* SEARCH */
+function handleSearch(q){searchQ=q;document.getElementById('sclear').classList.toggle('on',q.length>0);renderGames();}
+function clearSearch(){searchQ='';document.getElementById('main-in').value='';document.getElementById('nav-in').value='';document.getElementById('sclear').classList.remove('on');}
+
+const MI=document.getElementById('main-in'),NI=document.getElementById('nav-in');
+MI.addEventListener('input',function(){NI.value=this.value;handleSearch(this.value);});
+NI.addEventListener('input',function(){MI.value=this.value;handleSearch(this.value);if(this.value.length===1)document.getElementById('ga').scrollIntoView({behavior:'smooth',block:'start'});});
+document.getElementById('sclear').addEventListener('click',()=>{clearSearch();renderGames();MI.focus();});
+document.getElementById('srh-clr').addEventListener('click',()=>{clearSearch();renderGames();});
+document.querySelectorAll('.sbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{activeSort=btn.dataset.sort;document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderGames();});
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='/'&&document.activeElement!==MI&&document.activeElement!==NI){e.preventDefault();MI.focus();document.getElementById('ga').scrollIntoView({behavior:'smooth',block:'start'});}
+  if(e.key==='Escape'){clearSearch();renderGames();MI.blur();NI.blur();}
+});
+
+/* INIT */
+document.getElementById('total-stat').textContent=GAMES.length+'+';
+buildTicker();buildCats();renderRecent();renderGames();buildGenreStrip();
+maybeShowIosPopup();
+
+/* GENRE STRIP */
+function buildGenreStrip(){
+  const genres=[
+    {icon:'😱',label:'Horror'},
+    {icon:'⛏️',label:'Minecraft'},
+    {icon:'🎵',label:'Music & Rhythm'},
+    {icon:'🔫',label:'Shooting'},
+    {icon:'👾',label:'Arcade'},
+    {icon:'🃏',label:'Casual'},
+    {icon:'🧠',label:'Strategy'},
+    {icon:'🏠',label:'Simulation'},
+    {icon:'🧩',label:'Puzzle'},
+    {icon:'💃',label:'Multiplayer'},
+    {icon:'💡',label:'Quiz'},
+    {icon:'🎮',label:'All Games'},
+  ];
+  const track=document.getElementById('genre-track');
+  if(!track)return;
+  const items=genres.map(g=>`<div class="genre-pill" onclick="activeCat=CATS.find(c=>c.label==='${g.label}'||c.icon==='${g.icon}')?.id||'all';buildCats();renderGames();document.getElementById('ga').scrollIntoView({behavior:'smooth'})"><span class="g-ico">${g.icon}</span>${g.label}</div>`).join('');
+  track.innerHTML=items+items+items;
+}
+
+/* PWA */
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();
+  deferredPrompt=e;
+  if(!localStorage.getItem('pwa_dismissed')){
+    setTimeout(()=>document.getElementById('pwa-banner').classList.add('show'),3000);
+  }
+});
+document.getElementById('pwa-install-btn').addEventListener('click',async()=>{
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();
+  const {outcome}=await deferredPrompt.userChoice;
+  deferredPrompt=null;
+  document.getElementById('pwa-banner').classList.remove('show');
+  if(outcome==='accepted') localStorage.setItem('pwa_installed','1');
+});
+window.addEventListener('appinstalled',()=>{
+  document.getElementById('pwa-banner').classList.remove('show');
+  deferredPrompt=null;
+});
+
+/* SERVICE WORKER */
+if('serviceWorker' in navigator){
+  const swCode=`
+    const CACHE='sib-v1';
+    const SHELL=['/'];
+    self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL))));
+    self.addEventListener('fetch',e=>e.respondWith(fetch(e.request).catch(()=>caches.match(e.request))));
+  `;
+  const blob=new Blob([swCode],{type:'application/javascript'});
+  const swURL=URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swURL).catch(()=>{});
+}
+</script>
+</body>
+</html>
